@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            padding: 20px;
+            color: #fff;
+            overflow: hidden;
+            transition: background 1s ease-in-out;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 50px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 10px;
+        }
+        .love-note {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            display: inline-block;
+            transition: all 0.5s ease;
+        }
+        .fav-things {
+            margin-top: 30px;
+        }
+        .btn-container {
+            margin-top: 20px;
+            position: relative;
+        }
+        .btn {
+            padding: 10px 20px;
+            background: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px;
+            transition: all 0.5s ease;
+        }
+        .btn:hover {
+            background: #e85a4f;
+        }
+        #noBtn {
+            position: absolute;
+        }
+        /* Full-screen image styling */
+        #loveImage {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="header">Hey My Love ❤️</h1>
+    <div class="love-note" id="message">
+        <p>I just wanted to remind you how incredibly special you are to me. 🌸</p>
+        <p>Every day with you feels like a perfect waffle topped with Nutella – sweet, warm, and absolutely irresistible! 🧇🍫</p>
+        <p>Watching cricket with you is my new favorite sport – even if I get distracted by how cute you look while watching it! 🏏😉</p>
+        <p>And just like Anuv Jain’s songs, you bring melody and joy into my life! 🎶</p>
+        <p>I love you more than all the waffles and Nutella in the world! 💖</p>
+    </div>
+    <div class="fav-things">
+        <p>Will you be mine forever? 😘</p>
+        <div class="btn-container">
+            <button class="btn" id="yesBtn" onclick="showLove()">Yes</button>
+            <button class="btn" id="noBtn" onclick="growYes()">No</button>
+        </div>
+    </div>
+
+    <!-- Hidden Image -->
+    <img id="loveImage" src="https://photos.app.goo.gl/BEvT3uqvP8x4CLzv6" alt="Our Love Story">
+
+
+    <script>
+        let yesBtn = document.getElementById('yesBtn');
+        let noBtn = document.getElementById('noBtn');
+        let message = document.getElementById('message');
+        let header = document.getElementById('header');
+        let loveImage = document.getElementById('loveImage');
+        let fontSize = 16;
+
+        function showLove() {
+            document.body.style.background = "black"; // Makes the text stand out
+            message.style.display = "none";
+            header.style.display = "none";
+            yesBtn.style.display = "none";
+            noBtn.style.display = "none";
+            loveImage.style.display = "block"; // Show the full-screen image
+            document.body.innerHTML += "<h1 style='position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: white; text-align: center;'>I knew it! You are my forever and always! ❤️🥰</h1>";
+        }
+
+        function growYes() {
+            fontSize += 50;
+            yesBtn.style.fontSize = fontSize + 'px';
+            yesBtn.style.padding = (fontSize / 3) + 'px ' + (fontSize / 2) + 'px';
+            yesBtn.style.position = 'absolute';
+            yesBtn.style.top = '50%';
+            yesBtn.style.left = '50%';
+            yesBtn.style.transform = 'translate(-50%, -50%)';
+            message.style.display = 'none';
+            header.style.display = 'none';
+            if (fontSize > 500) {
+                noBtn.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
